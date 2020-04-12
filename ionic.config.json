@@ -1,0 +1,7 @@
+{
+  "name": "InviteManager",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
