@@ -21,7 +21,7 @@ RUN apt-get update \
   && wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true \
   #
   # Install ionic
-  && npm install -g ionic \
+  && npm install -g @ionic/cli \
   #
   # Clean up
   && apt-get autoremove -y \
