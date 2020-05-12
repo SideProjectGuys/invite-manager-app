@@ -11,7 +11,7 @@
 		"test": "ng test",
 		"lint": "ng lint",
 		"e2e": "ng e2e",
-		"prettier": "prettier --write \"src/**/*.ts\" \"docs/**/*.md\" \"README.md\" \"CHANGELOG.md\""
+		"prettier": "prettier --write \"src/**/*.ts\" \"e2e/**/*.ts\" \"README.md\""
 	},
 	"private": true,
 	"dependencies": {
@@ -56,7 +56,9 @@
 		"protractor": "~5.4.0",
 		"ts-node": "~7.0.0",
 		"tslint": "~5.15.0",
-		"typescript": "~3.8.3"
+		"tslint-config-prettier": "^1.18.0",
+		"typescript": "~3.8.3",
+		"typestrict": "^1.0.2"
 	},
 	"description": "A webapp to configure the InviteManager Discord Bot."
 }
