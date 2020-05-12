@@ -29,6 +29,7 @@
     // See https://github.com/palantir/tslint/issues/4534
     "ms-vscode.vscode-typescript-tslint-plugin",
     "angular.ng-template",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "eamodio.gitlens"
   ]
 }
