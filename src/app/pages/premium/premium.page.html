@@ -1,0 +1,38 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>premium</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-grid fixed="true" class="ion-padding">
+		<br />
+		<br />
+		<br />
+		<br />
+		<ion-row class="hero--container ion-align-items-center">
+			<ion-row class="selection--container">
+				<ion-col *ngFor="let tier of tiers" size="12" size-md="3">
+					<ion-card class="ion-no-margin">
+						<ion-card-header class="ion-align-items-center">
+							<ion-card-title>{{ tier.name }}</ion-card-title>
+						</ion-card-header>
+						<ion-card-content>
+							<p>{{ tier.price }}</p>
+							<p>PER MONTH</p>
+							<ion-button>
+								Join
+							</ion-button>
+							<ul>
+								<li *ngFor="let perk of tier.perks"><span [innerHTML]="perk"></span></li>
+							</ul>
+						</ion-card-content>
+						<div class="ion-margin">
+							Provided by Pateron
+						</div>
+					</ion-card>
+				</ion-col>
+			</ion-row>
+		</ion-row>
+	</ion-grid>
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>faq</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+	<ion-searchbar animated></ion-searchbar>
+	<mat-accordion>
+		<mat-expansion-panel *ngFor="let faq of faqs" (opened)="faq.open = true" (closed)="faq.open = false">
+			<mat-expansion-panel-header>
+				<mat-panel-title>
+					{{ faq.question }}
+				</mat-panel-title>
+				<mat-panel-description *ngIf="!faq.open">
+					{{ faq.answer }}
+				</mat-panel-description>
+			</mat-expansion-panel-header>
+			{{ faq.answer }}
+		</mat-expansion-panel>
+	</mat-accordion>
+</ion-content>
