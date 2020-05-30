@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Plugins } from '@capacitor/core';
+
+const { Browser } = Plugins;
+
+interface Tier {
+	name: string;
+	price: string;
+	url: string;
+	perks: string[];
+}
 
 @Component({
 	selector: 'app-premium',
 	templateUrl: './premium.page.html',
 	styleUrls: ['./premium.page.scss']
 })
-export class PremiumPage implements OnInit {
-	public tiers = [
+export class PremiumPage {
+	public tiers: Tier[] = [
 		{
 			name: 'Premium',
 			price: '$5',
+			url: 'https://patreon.com/invitemanager',
 			perks: [
 				'Access to <b>Premium features</b>',
 				'Access to pro bot with Orange logo',
@@ -21,6 +32,7 @@ export class PremiumPage implements OnInit {
 		{
 			name: 'Custom Bot',
 			price: '$10',
+			url: 'https://patreon.com/invitemanager',
 			perks: [
 				'All of the above',
 				'Own bot instance with special features',
@@ -33,6 +45,7 @@ export class PremiumPage implements OnInit {
 		{
 			name: 'Premium Member',
 			price: '$20',
+			url: 'https://patreon.com/invitemanager',
 			perks: [
 				'All of the above',
 				'Special Role in our discord',
@@ -42,11 +55,14 @@ export class PremiumPage implements OnInit {
 		{
 			name: 'VIP',
 			price: '$50',
+			url: 'https://patreon.com/invitemanager',
 			perks: ['All of the above', 'Access to exclusive <a href="/faq/vip-bot">InviteManager VIP Bot</a>.']
 		}
 	];
 
 	constructor() {}
 
-	ngOnInit() {}
+	public async openUrl(url: string): Promise<void> {
+		await Browser.open({ url });
+	}
 }

@@ -20,7 +20,7 @@
 						<ion-card-content>
 							<p>{{ tier.price }}</p>
 							<p>PER MONTH</p>
-							<ion-button>
+							<ion-button (click)="openUrl(tier.url)">
 								Join
 							</ion-button>
 							<ul>
