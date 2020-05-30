@@ -1,22 +1,19 @@
 <ion-header>
 	<ion-toolbar>
-		<ion-title>faq</ion-title>
+		<ion-title>FAQ</ion-title>
 	</ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-	<ion-searchbar animated></ion-searchbar>
+	<ion-searchbar animated debounce="200" (ionInput)="applyFilter($event)" (ionClear)="applyFilter()"></ion-searchbar>
 	<mat-accordion>
-		<mat-expansion-panel *ngFor="let faq of faqs" (opened)="faq.open = true" (closed)="faq.open = false">
+		<mat-expansion-panel *ngFor="let faq of filteredFaqs" (opened)="faq.open = true" (closed)="faq.open = false">
 			<mat-expansion-panel-header>
 				<mat-panel-title>
 					{{ faq.question }}
 				</mat-panel-title>
-				<mat-panel-description *ngIf="!faq.open">
-					{{ faq.answer }}
-				</mat-panel-description>
 			</mat-expansion-panel-header>
-			{{ faq.answer }}
+			<p [innerHTML]="faq.answer"></p>
 		</mat-expansion-panel>
 	</mat-accordion>
 </ion-content>
