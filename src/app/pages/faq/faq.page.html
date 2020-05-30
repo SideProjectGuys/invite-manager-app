@@ -4,19 +4,21 @@
 	</ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-	<ion-searchbar animated debounce="200" (ionInput)="applyFilter($event)" (ionClear)="applyFilter()"></ion-searchbar>
-	<ng-container *ngFor="let faqGroup of filteredGroupedFaqs">
-		<h2>{{ faqGroup.title }}</h2>
-		<mat-accordion>
-			<mat-expansion-panel *ngFor="let faq of faqGroup.faqs" (opened)="faq.open = true" (closed)="faq.open = false">
-				<mat-expansion-panel-header>
-					<mat-panel-title>
-						{{ faq.question }}
-					</mat-panel-title>
-				</mat-expansion-panel-header>
-				<p [innerHTML]="faq.answer"></p>
-			</mat-expansion-panel>
-		</mat-accordion>
-	</ng-container>
+<ion-content>
+	<ion-grid fixed="true" class="ion-padding">
+		<ion-searchbar animated debounce="200" (ionInput)="applyFilter($event)" (ionClear)="applyFilter()"></ion-searchbar>
+		<ng-container *ngFor="let faqGroup of filteredGroupedFaqs">
+			<h2>{{ faqGroup.title }}</h2>
+			<mat-accordion>
+				<mat-expansion-panel *ngFor="let faq of faqGroup.faqs" (opened)="faq.open = true" (closed)="faq.open = false">
+					<mat-expansion-panel-header>
+						<mat-panel-title>
+							{{ faq.question }}
+						</mat-panel-title>
+					</mat-expansion-panel-header>
+					<p [innerHTML]="faq.answer"></p>
+				</mat-expansion-panel>
+			</mat-accordion>
+		</ng-container>
+	</ion-grid>
 </ion-content>
