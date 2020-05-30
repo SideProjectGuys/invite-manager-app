@@ -3,12 +3,41 @@
 		<ion-buttons slot="start">
 			<ion-menu-button></ion-menu-button>
 		</ion-buttons>
-		<ion-title>Home</ion-title>
 	</ion-toolbar>
 </ion-header>
 
 <ion-content>
 	<ion-grid fixed="true" class="ion-padding">
-		Welcome to the InviteManager Landing Page!
+		<ion-row class="hero--container ion-align-items-center">
+			<ion-col>
+				<h1>
+					InviteManager
+				</h1>
+				<h3>
+					Grow your discord server!
+				</h3>
+				<ion-button
+					(click)="openUrl('https://discord.com/oauth2/authorize?client_id=409875566800404480&permissions=473001191&scope=bot')"
+					>Invite Bot</ion-button
+				>
+				<ion-button (click)="openUrl('https://discord.com/invite/S977tw2')" fill="outline">
+					Join Server
+				</ion-button>
+			</ion-col>
+			<ion-col>
+				<img src="/assets/invite-manager-logo-main.png" />
+			</ion-col>
+		</ion-row>
+
+		<ion-row class="ion-padding-bottom">
+			<ion-col class="ion-no-padding ion-padding-bottom">
+				<ion-card color="secondary" class="ion-no-margin">
+					<ion-card-content>
+						<strong>InviteManager Pro</strong><br />
+						For the most advanced features like styled join and leave messages, you can get our pro bot.
+					</ion-card-content>
+				</ion-card>
+			</ion-col>
+		</ion-row>
 	</ion-grid>
 </ion-content>
