@@ -24,7 +24,7 @@
 				<ion-list id="labels-list">
 					<ion-list-header>Servers</ion-list-header>
 
-					<ion-item *ngFor="let p of navGroup2" lines="none">
+					<ion-item *ngFor="let p of navGroup2" (click)="openUrl(p.url)" lines="none">
 						<ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
 						<ion-label>{{ p.title }}</ion-label>
 					</ion-item>

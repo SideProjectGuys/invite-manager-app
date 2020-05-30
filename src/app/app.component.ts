@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Plugins } from '@capacitor/core';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Platform } from '@ionic/angular';
+
+const { Browser } = Plugins;
 
 @Component({
 	selector: 'app-root',
@@ -41,12 +44,12 @@ export class AppComponent implements OnInit {
 	public navGroup2 = [
 		{
 			title: 'Join Server',
-			url: '/folder/Spam',
+			url: 'https://discord.com/invite/S977tw2',
 			icon: 'warning'
 		},
 		{
-			title: 'Login with Discord',
-			url: '/folder/Spam',
+			title: 'Webpanel',
+			url: 'https://app.invitemanager.gg',
 			icon: 'warning'
 		}
 	];
@@ -64,6 +67,10 @@ export class AppComponent implements OnInit {
 		if (path !== undefined) {
 			this.selectedIndex = this.navGroup1.findIndex((page) => page.title.toLowerCase() === path.toLowerCase());
 		}
+	}
+
+	public async openUrl(url: string): Promise<void> {
+		await Browser.open({ url });
 	}
 
 	private async initializeApp() {
