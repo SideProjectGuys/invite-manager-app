@@ -16,41 +16,34 @@ export class AppComponent implements OnInit {
 	public navGroup1 = [
 		{
 			title: 'InviteManager Bot',
-			url: '/home',
-			icon: 'mail'
+			url: '/home'
 		},
 		{
 			title: 'Commands',
-			url: '/commands',
-			icon: 'paper-plane'
+			url: '/commands'
 		},
 		{
 			title: 'FAQ',
-			url: '/faq',
-			icon: 'paper-plane'
+			url: '/faq'
 		},
 		{
 			title: 'Status',
-			url: '/status',
-			icon: 'paper-plane'
+			url: '/status'
 		},
 		{
 			title: 'Get Premium',
-			url: '/premium',
-			icon: 'paper-plane'
+			url: '/premium'
 		}
 	];
 
 	public navGroup2 = [
 		{
 			title: 'Join Server',
-			url: 'https://discord.com/invite/S977tw2',
-			icon: 'warning'
+			url: 'https://discord.com/invite/S977tw2'
 		},
 		{
 			title: 'Webpanel',
-			url: 'https://app.invitemanager.gg',
-			icon: 'warning'
+			url: 'https://app.invitemanager.gg'
 		}
 	];
 

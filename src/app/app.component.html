@@ -15,7 +15,6 @@
 							detail="false"
 							[class.selected]="selectedIndex == i"
 						>
-							<ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
 							<ion-label>{{ p.title }}</ion-label>
 						</ion-item>
 					</ion-menu-toggle>
@@ -25,7 +24,6 @@
 					<ion-list-header>Servers</ion-list-header>
 
 					<ion-item *ngFor="let p of navGroup2" (click)="openUrl(p.url)" lines="none">
-						<ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
 						<ion-label>{{ p.title }}</ion-label>
 					</ion-item>
 				</ion-list>
