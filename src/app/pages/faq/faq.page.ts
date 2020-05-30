@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 
 enum FaqType {
 	GENERAL = 'general',
+	SUPPORT = 'support',
 	PRO_BOT = 'pro-bot',
-	CUSTOM_BOT = 'custom-bot'
+	CUSTOM_BOT = 'custom-bot',
+	VIP_BOT = 'vip-bot'
 }
 
 interface Faq {
@@ -31,29 +33,29 @@ export class FaqPage {
 			group: FaqType.GENERAL
 		},
 		{
-			question: 'How can I set up join and leave messages?',
-			answer: 'Answer...',
-			group: FaqType.GENERAL
-		},
-		{
 			question: 'Is there a premium version?',
 			answer: 'Answer...',
 			group: FaqType.GENERAL
 		},
 		{
+			question: 'How can I set up join and leave messages?',
+			answer: 'Answer...',
+			group: FaqType.SUPPORT
+		},
+		{
 			question: 'How can I clear all my invites?',
 			answer: 'Answer...',
-			group: FaqType.GENERAL
+			group: FaqType.SUPPORT
 		},
 		{
 			question: 'Why is the bot offline?',
 			answer: 'Answer...',
-			group: FaqType.GENERAL
+			group: FaqType.SUPPORT
 		},
 		{
 			question: 'The bot is down and I need it on my server. What can I do?',
 			answer: 'Answer...',
-			group: FaqType.GENERAL
+			group: FaqType.SUPPORT
 		},
 		{
 			question: 'What are the advantages of the pro bot?',
@@ -124,6 +126,16 @@ export class FaqPage {
 			question: 'How can I control which servers can use my custom bot?',
 			answer: 'Answer...',
 			group: FaqType.CUSTOM_BOT
+		},
+		{
+			question: 'What is the VIP bot?',
+			answer: 'Answer...',
+			group: FaqType.VIP_BOT
+		},
+		{
+			question: 'What extra features does the VIP bot offer?',
+			answer: 'Answer...',
+			group: FaqType.VIP_BOT
 		}
 	];
 
