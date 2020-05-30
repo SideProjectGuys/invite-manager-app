@@ -38,6 +38,23 @@ export class FaqPage {
 			group: FaqType.GENERAL
 		},
 		{
+			question: 'Can I help translate the bot?',
+			answer:
+				'Yes! Head over to our project on <a href="https://www.transifex.com/sideprojectguys/invitemanager-bot/">Transifex</a>. After you sign up, you can either help with an existing language, or request a new one to be added. After you have translated parts of our bot, you will get the translator role in our discord!',
+			group: FaqType.GENERAL
+		},
+		{
+			question: 'I helped translate the bot. How can I get my role?',
+			answer:
+				'After you have translated parts of the bot, please contact one of the Lead Developers with your email so they can give you the translator role.',
+			group: FaqType.GENERAL
+		},
+		{
+			question: 'I received a DM saying that there is a new bot. Is it true?',
+			answer: 'Answer...',
+			group: FaqType.GENERAL
+		},
+		{
 			question: 'How can I set up join and leave messages?',
 			answer: 'Answer...',
 			group: FaqType.SUPPORT
