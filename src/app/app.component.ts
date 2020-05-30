@@ -51,21 +51,26 @@ export class AppComponent implements OnInit {
 		}
 	];
 
-	constructor(private platform: Platform, private splashScreen: SplashScreen, private statusBar: StatusBar) {
-		this.initializeApp();
+	constructor(
+		private readonly platform: Platform,
+		private readonly splashScreen: SplashScreen,
+		private readonly statusBar: StatusBar
+	) {
+		this.initializeApp().catch(console.error);
 	}
 
-	initializeApp() {
-		this.platform.ready().then(() => {
-			this.statusBar.styleDefault();
-			this.splashScreen.hide();
-		});
-	}
-
-	ngOnInit() {
+	public async ngOnInit(): Promise<void> {
 		const path = window.location.pathname.split('folder/')[1];
 		if (path !== undefined) {
 			this.selectedIndex = this.navGroup1.findIndex((page) => page.title.toLowerCase() === path.toLowerCase());
+		}
+	}
+
+	private async initializeApp() {
+		if (this.platform.is('capacitor')) {
+			await this.platform.ready();
+			this.statusBar.styleDefault();
+			this.splashScreen.hide();
 		}
 	}
 }
