@@ -94,7 +94,33 @@ export class FaqPage {
 		},
 		{
 			question: 'I bought the custom bot, how can I get it?',
-			answer: 'Answer...',
+			answer: `
+			<p>Custom bots automatically have premium activated on all servers they join. We don't have a limit of how many servers you can run your custom bot on, but please only use it on your own servers, otherwise we will have to add a limit.</p>
+			<h2>Creating a Bot Token</h2>
+			<p>First you have to create a new bot in the <a href="https://discordapp.com/developers/applications/">Discord Developer Portal</a>. Make sure you are logged in with your main Discord Account and click on "New Application" in the top right.</p>
+			<img src="/assets/faq/setup-custom-bot/discord-developer-1-add-application.png">
+			<p>Now enter the name of your Bot (you can change this again later), and hit "Create".</p>
+			<img src="/assets/faq/setup-custom-bot/discord-developer-2-add-application-popup.png">
+			<p>Now copy the ID of the CLIENT ID of your bot and save it for later.</p>
+			<img src="/assets/faq/setup-custom-bot/discord-developer-3-application-general-info.png">
+			<p>Then open the "Bots" tab on the left side and click on "Add Bot".</p>
+			<img src="/assets/faq/setup-custom-bot/discord-developer-4-application-bots.png">
+			<p>Confirm by clicking on "Yes, do it!".</p>
+			<img src="/assets/faq/setup-custom-bot/discord-developer-5-application-bots-add.png">
+			<p>Now click the "Copy" button under the TOKEN settings.</p>
+			<p>Send a message to one of the <strong>Lead Developers</strong> on our discord containing your <strong>patreon email</strong>, the <strong>CLIENT ID</strong> and the <strong>BOT TOKEN</strong>. If you have been using the regular (blue) or pro (orange) bot and would like us to migrate your data over to your custom bot, please also send us the IDs of the server you want to migrate.</p>
+			<p>Example message:</p>
+			<p>
+			New custom bot<br />
+				<strong>EMAIL</strong>: [your patreon email]<br />
+				<strong>CLIENT ID</strong>: [your client ID here]<br />
+				<strong>BOT TOKEN</strong>: [your bot token here]<br />
+				<strong>SERVER IDS</strong>: [id1], [id2], [id3], ...
+			</p>
+			<p>After we have have this message, it might take us up to 1 day to set up your bot, but if we're online, it's usually much faster.</p>
+			<img src="/assets/faq/setup-custom-bot/discord-developer-6-application-bots-token.png">
+			<p>On the last page you can also set the logo and name of your bot.</p>
+			`,
 			group: FaqType.CUSTOM_BOT
 		},
 		{
