@@ -6,10 +6,6 @@
 
 <ion-content class="ion-padding">
 	<ion-grid fixed="true" class="ion-padding">
-		<br />
-		<br />
-		<br />
-		<br />
 		<ion-row class="hero--container ion-align-items-center">
 			<ion-row class="selection--container">
 				<ion-col *ngFor="let tier of tiers" size="12" size-md="3">
@@ -18,8 +14,7 @@
 							<ion-card-title>{{ tier.name }}</ion-card-title>
 						</ion-card-header>
 						<ion-card-content>
-							<p>{{ tier.price }}</p>
-							<p>PER MONTH</p>
+							<p><strong>{{ tier.price }}</strong> / MONTH</p>
 							<ion-button (click)="openUrl(tier.url)">
 								Join
 							</ion-button>
@@ -27,9 +22,6 @@
 								<li *ngFor="let perk of tier.perks"><span [innerHTML]="perk"></span></li>
 							</ul>
 						</ion-card-content>
-						<div class="ion-margin">
-							Provided by Pateron
-						</div>
 					</ion-card>
 				</ion-col>
 			</ion-row>
