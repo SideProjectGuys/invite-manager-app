@@ -9,12 +9,7 @@ import { CommandsPageRoutingModule } from './commands-routing.module';
 import { CommandsPage } from './commands.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    CommandsPageRoutingModule
-  ],
-  declarations: [CommandsPage]
+	imports: [CommonModule, FormsModule, IonicModule, CommandsPageRoutingModule],
+	declarations: [CommandsPage]
 })
 export class CommandsPageModule {}

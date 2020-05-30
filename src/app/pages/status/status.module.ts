@@ -9,12 +9,7 @@ import { StatusPageRoutingModule } from './status-routing.module';
 import { StatusPage } from './status.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    StatusPageRoutingModule
-  ],
-  declarations: [StatusPage]
+	imports: [CommonModule, FormsModule, IonicModule, StatusPageRoutingModule],
+	declarations: [StatusPage]
 })
 export class StatusPageModule {}

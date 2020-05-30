@@ -12,8 +12,8 @@ const { Browser } = Plugins;
 	styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
-	public selectedIndex = 0;
-	public navGroup1 = [
+	public selectedIndex: number = 0;
+	public navGroup1: { title: string; url: string }[] = [
 		{
 			title: 'InviteManager Bot',
 			url: '/home'
@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
 		}
 	];
 
-	public navGroup2 = [
+	public navGroup2: { title: string; url: string }[] = [
 		{
 			title: 'Join Server',
 			url: 'https://discord.com/invite/S977tw2'

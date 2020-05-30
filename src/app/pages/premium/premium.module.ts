@@ -9,12 +9,7 @@ import { PremiumPageRoutingModule } from './premium-routing.module';
 import { PremiumPage } from './premium.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    PremiumPageRoutingModule
-  ],
-  declarations: [PremiumPage]
+	imports: [CommonModule, FormsModule, IonicModule, PremiumPageRoutingModule],
+	declarations: [PremiumPage]
 })
 export class PremiumPageModule {}

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Plugins } from '@capacitor/core';
+
+const { Browser } = Plugins;
 
 @Component({
 	selector: 'app-home',
@@ -9,4 +12,8 @@ export class HomePage implements OnInit {
 	constructor() {}
 
 	ngOnInit() {}
+
+	public async openUrl(url: string): Promise<void> {
+		await Browser.open({ url });
+	}
 }
