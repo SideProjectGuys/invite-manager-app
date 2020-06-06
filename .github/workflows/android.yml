@@ -28,10 +28,10 @@ jobs:
 
       # Build app
       - name: Build Angular
-        run: ionic build --prod
+        run: npx ionic build --prod
 
       - name: Copy files to native project
-        run: cap sync android
+        run: npx cap sync android
 
       - name: Clean android project
         run: android/gradlew --project-dir android clean
