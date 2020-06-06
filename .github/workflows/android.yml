@@ -39,7 +39,7 @@ jobs:
       - name: Build Android APK
         run: |
           android/gradlew assembleDebug --project-dir android build
-          # mv android/app/build/outputs/apk/debug/app-debug.apk invite-manager-app-unsigned.apk
+          mv android/app/build/outputs/apk/debug/app-debug.apk invite-manager-app-unsigned.apk
       # mv android/app/build/outputs/apk/release/app-release-unsigned.apk invite-manager-app-unsigned.apk
 
       # Publish artifacts
