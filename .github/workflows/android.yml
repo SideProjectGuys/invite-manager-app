@@ -37,11 +37,13 @@ jobs:
         run: android/gradlew --project-dir android clean
 
       - name: Build Android APK
-        run: android/gradlew --project-dir android build
+        run: |
+          android/gradlew assembleDebug --project-dir android build
+          mv android/app/build/outputs/apk/release/app-release-unsigned.apk invite-manager-app-unsigned.apk
 
       # Publish artifacts
       - name: Upload dev APK
         uses: actions/upload-artifact@v1
         with:
           name: app-dev
-          path: android/app/build/outputs/apk/release/app-release-unsigned.apk
+          path: invite-manager-app-unsigned.apk
