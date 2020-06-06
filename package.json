@@ -4,11 +4,12 @@
 	"author": "SideProjectGuys",
 	"homepage": "https://sideprojectguys.com/",
 	"scripts": {
-		"actions:deploy": "ng deploy --name $GITHUB_ACTOR --email $GITHUB_ACTOR@users.noreply.github.com --no-silent",
+		"actions:deploy": "ng deploy --name $GITHUB_ACTOR --email $GITHUB_ACTOR@users.noreply.github.com --no-build --no-silent",
 		"ng": "ng",
 		"start": "ng serve",
 		"serve": "ionic serve --external",
 		"build": "ng build",
+		"build:prod": "ng build --prod",
 		"deploy": "ng deploy",
 		"test": "ng test",
 		"lint": "ng lint",

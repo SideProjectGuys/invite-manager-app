@@ -1,20 +1,20 @@
-name: iOS Build
+# name: iOS Build
 
-on: push
+# on: push
 
-jobs:
-  build:
-    runs-on: [macos-latest]
-    env:
-      XC_VERSION: ${{ '11.4' }}
-      XC_WORKSPACE: ${{ 'ios/App/App.xcworkspace' }}
-      XC_SCHEME: ${{ 'App' }}
+# jobs:
+#   build:
+#     runs-on: [macos-latest]
+#     env:
+#       XC_VERSION: ${{ '11.4' }}
+#       XC_WORKSPACE: ${{ 'ios/App/App.xcworkspace' }}
+#       XC_SCHEME: ${{ 'App' }}
 
-    steps:
-      - name: Select latest Xcode
-        run: 'sudo xcode-select -s /Applications/Xcode_$XC_VERSION.app'
+#     steps:
+#       - name: Select latest Xcode
+#         run: 'sudo xcode-select -s /Applications/Xcode_$XC_VERSION.app'
 
-      - uses: actions/checkout@v2
+#       - uses: actions/checkout@v2
 
-      - name: Run Unit and UI Tests
-        run: /usr/bin/xcodebuild test -workspace "$XC_WORKSPACE" -scheme "$XC_SCHEME" -destination 'platform=iOS Simulator,name=iPhone 11'
+#       - name: Run Unit and UI Tests
+#         run: /usr/bin/xcodebuild test -workspace "$XC_WORKSPACE" -scheme "$XC_SCHEME" -destination 'platform=iOS Simulator,name=iPhone 11'
