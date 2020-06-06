@@ -22,18 +22,9 @@ jobs:
         with:
           node-version: 12.x
 
-      # Capacitor
-      - name: Install Capacitor
-        run: npm install -g @capacitor/cli
-
-      - name: Install Ionic
-        run: npm install -g @ionic/cli
-
+      # Install dependencies
       - name: Install app dependencies
         run: npm install
-
-      - name: Add Android platform
-        run: ionic cordova platform add android@latest
 
       # Build app
       - name: Build Angular
@@ -43,10 +34,10 @@ jobs:
         run: cap sync android
 
       - name: Clean android project
-        run: android/gradlew --project-dir /app/android clean
+        run: android/gradlew --project-dir android clean
 
       - name: Build Android APK
-        run: android/gradlew --project-dir /app/android build
+        run: android/gradlew --project-dir android build
 
       # Publish artifacts
       - name: Upload dev APK
