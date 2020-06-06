@@ -7,7 +7,7 @@ jobs:
     runs-on: [macos-latest]
     env:
       XC_VERSION: ${{ '11.4' }}
-      XC_WORKSPACE: ${{ 'App.xcworkspace' }}
+      XC_WORKSPACE: ${{ 'ios/App/App.xcworkspace' }}
       XC_SCHEME: ${{ 'App' }}
 
     steps:
