@@ -34,7 +34,7 @@ export class FaqPage {
 		},
 		{
 			question: 'Is there a premium version?',
-			answer: 'Answer...',
+			answer: 'Yes! You can find out more <a href="/premium">here</a>.',
 			group: FaqType.GENERAL
 		},
 		{
