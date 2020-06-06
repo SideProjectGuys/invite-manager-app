@@ -182,8 +182,6 @@
 					"builder": "angular-cli-ghpages:deploy",
 					"options": {
 						"baseHref": "/invite-manager-app/",
-						"name": "InviteManager CI",
-						"email": "mail@invitemanager.gg",
 						"noSilent": true
 					}
 				}

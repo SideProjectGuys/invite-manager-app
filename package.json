@@ -4,6 +4,7 @@
 	"author": "SideProjectGuys",
 	"homepage": "https://sideprojectguys.com/",
 	"scripts": {
+		"actions:deploy": "ng deploy --name $GITHUB_ACTOR --email $GITHUB_ACTOR@users.noreply.github.com --no-silent",
 		"ng": "ng",
 		"start": "ng serve",
 		"serve": "ionic serve --external",

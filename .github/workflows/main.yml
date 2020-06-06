@@ -18,9 +18,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: Prepare and deploy
+        - name: Prepare
+        run: npm ci
+        - name: Deploy Github Pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npm i
-          npm run deploy
+          npm run actions:deploy
