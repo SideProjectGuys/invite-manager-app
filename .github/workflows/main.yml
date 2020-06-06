@@ -19,9 +19,9 @@ jobs:
         with:
           node-version: 12.x
       - name: Prepare
-      run: npm ci
+        run: npm ci
       - name: Deploy Github Pages
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        npm run actions:deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm run actions:deploy
