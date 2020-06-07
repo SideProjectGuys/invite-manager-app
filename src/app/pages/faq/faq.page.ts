@@ -27,6 +27,15 @@ interface FaqGroup {
 	styleUrls: ['./faq.page.scss']
 })
 export class FaqPage {
+	public faqTypeNames: { [key in FaqType]: string } = {
+		[FaqType.GENERAL]: 'General',
+		[FaqType.SUPPORT]: 'Support',
+		[FaqType.ALPHA_BOT]: 'Alpha Bot',
+		[FaqType.PRO_BOT]: 'Pro Bot',
+		[FaqType.CUSTOM_BOT]: 'Custom Bot',
+		[FaqType.VIP_BOT]: 'VIP Bot'
+	};
+
 	public faqs: Faq[] = [
 		{
 			question: 'What is the InviteManager bot?',
@@ -197,7 +206,8 @@ export class FaqPage {
 			filteredFaqs = this.faqs.filter(
 				(faq) =>
 					faq.question.toLowerCase().includes(lowerCaseSearchTerm) ||
-					faq.answer.toLowerCase().includes(lowerCaseSearchTerm)
+					faq.answer.toLowerCase().includes(lowerCaseSearchTerm) ||
+					faq.group.toLowerCase().includes(lowerCaseSearchTerm)
 			);
 		}
 		const groups: Set<string> = new Set();
