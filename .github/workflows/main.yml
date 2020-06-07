@@ -68,7 +68,7 @@ jobs:
 
     steps:
       # Setup environment
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       - name: Setup java
         uses: actions/setup-java@v1
@@ -114,6 +114,9 @@ jobs:
       XC_SCHEME: ${{ 'App' }}
 
     steps:
+      # Setup environment
+      - uses: actions/checkout@v2
+
       - name: Select latest Xcode
         run: 'sudo xcode-select -s /Applications/Xcode_$XC_VERSION.app'
 
@@ -122,8 +125,14 @@ jobs:
         with:
           node-version: 12.x
 
+      - name: Download built webapp
+        uses: actions/download-artifact@v2
+        with:
+          name: angular_dist
+          path: www
+
       - name: Capacitor Sync
         run: npx cap sync ios
 
-      - name: Run Unit and UI Tests
-        run: /usr/bin/xcodebuild test -workspace "$XC_WORKSPACE" -scheme "$XC_SCHEME" -destination 'platform=iOS Simulator,name=iPhone 11'
+      - name: Build
+        run: /usr/bin/xcodebuild -workspace "$XC_WORKSPACE" -scheme "$XC_SCHEME" generic/platform=iOS -configuration Release archive -archivePath ios/InviteManager.xcarchive -allowProvisioningUpdates
