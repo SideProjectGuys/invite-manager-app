@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 enum FaqType {
 	GENERAL = 'general',
 	SUPPORT = 'support',
+	ALPHA_BOT = 'alpha-bot',
 	PRO_BOT = 'pro-bot',
 	CUSTOM_BOT = 'custom-bot',
 	VIP_BOT = 'vip-bot'

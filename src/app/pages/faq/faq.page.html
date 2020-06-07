@@ -14,9 +14,9 @@
 			<h2>{{ faqGroup.title }}</h2>
 			<mat-accordion>
 				<mat-expansion-panel *ngFor="let faq of faqGroup.faqs" (opened)="faq.open = true" (closed)="faq.open = false">
-					<mat-expansion-panel-header>
+					<mat-expansion-panel-header collapsedHeight="80px" expandedHeight="80px">
 						<mat-panel-title>
-							{{ faq.question }}
+							<h6>{{ faq.question }}</h6>
 						</mat-panel-title>
 					</mat-expansion-panel-header>
 					<span [innerHTML]="faq.answer"></span>
