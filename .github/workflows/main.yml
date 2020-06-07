@@ -25,6 +25,15 @@ jobs:
       - name: Prepare
         run: npm ci
 
+      - name: Prettier
+        run: npm run actions:prettier
+
+      # - name: Unit Tests
+      #   run: npm run actions:prettier
+
+      - name: E2E Tests
+        run: npm run e2e
+
       - name: Build
         run: npx ionic build --prod
 
@@ -102,14 +111,14 @@ jobs:
       - name: Build Android APK
         run: |
           android/gradlew assembleDebug --project-dir android build
-          mv android/app/build/outputs/apk/debug/app-debug.apk invite-manager-app-unsigned.apk
+          mv android/app/build/outputs/apk/debug/app-debug.apk invite-manager-app-dev.apk
 
       # Publish dev artifacts
       - name: Upload dev APK
         uses: actions/upload-artifact@v1
         with:
           name: app-dev
-          path: invite-manager-app-unsigned.apk
+          path: invite-manager-app-dev.apk
 
   ios_build:
     needs: build_angular
@@ -144,6 +153,5 @@ jobs:
 
       - name: Copy files to native project
         run: npx cap sync ios
-
-      - name: Build
-        run: /usr/bin/xcodebuild -workspace "$XC_WORKSPACE" -scheme "$XC_SCHEME" generic/platform=iOS -configuration Release archive -archivePath ios/InviteManager.xcarchive -allowProvisioningUpdates
+      # - name: Build
+      #   run: /usr/bin/xcodebuild -workspace "$XC_WORKSPACE" -scheme "$XC_SCHEME" generic/platform=iOS -configuration Release archive -archivePath ios/InviteManager.xcarchive -allowProvisioningUpdates
