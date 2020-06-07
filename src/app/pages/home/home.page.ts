@@ -9,9 +9,9 @@ const { Browser } = Plugins;
 	styleUrls: ['./home.page.scss']
 })
 export class HomePage implements OnInit {
-	constructor() {}
+	public constructor() {}
 
-	ngOnInit() {}
+	public ngOnInit() {}
 
 	public async openUrl(url: string): Promise<void> {
 		await Browser.open({ url });

@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
 		}
 	];
 
-	constructor(
+	public constructor(
 		private readonly platform: Platform,
 		private readonly splashScreen: SplashScreen,
 		private readonly statusBar: StatusBar

@@ -184,7 +184,7 @@ export class FaqPage {
 
 	public filteredGroupedFaqs: FaqGroup[] = [];
 
-	constructor() {
+	public constructor() {
 		this.applyFilter().catch(console.error);
 	}
 

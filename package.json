@@ -5,6 +5,8 @@
 	"homepage": "https://sideprojectguys.com/",
 	"scripts": {
 		"actions:deploy": "ng deploy --name $GITHUB_ACTOR --email $GITHUB_ACTOR@users.noreply.github.com --no-silent",
+		"actions:lint": "ng lint",
+		"actions:prettier": "prettier \"src/**/*.ts\" \"e2e/**/*.ts\" \"angular.json\" \"README.md\" --list-different",
 		"ng": "ng",
 		"start": "ng serve",
 		"serve": "ionic serve --external",
@@ -12,7 +14,7 @@
 		"build:prod": "ng build --prod",
 		"deploy": "ng deploy",
 		"test": "ng test",
-		"lint": "ng lint",
+		"lint": "ng lint --fix",
 		"e2e": "ng e2e",
 		"prettier": "prettier --write \"src/**/*.ts\" \"e2e/**/*.ts\" \"angular.json\" \"README.md\""
 	},
