@@ -11,7 +11,7 @@ describe('InviteManager', () => {
 			page.navigateTo('/');
 		});
 		it('should contain text', () => {
-			expect(page.getParagraphText()).toContain('Commands');
+			expect(page.getParagraphText()).toContain('discord');
 		});
 	});
 });
