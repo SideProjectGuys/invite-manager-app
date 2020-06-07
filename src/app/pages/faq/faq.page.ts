@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 enum FaqType {
 	GENERAL = 'general',
 	SUPPORT = 'support',
+	ALPHA_BOT = 'alpha-bot',
 	PRO_BOT = 'pro-bot',
 	CUSTOM_BOT = 'custom-bot',
 	VIP_BOT = 'vip-bot'
@@ -26,6 +27,15 @@ interface FaqGroup {
 	styleUrls: ['./faq.page.scss']
 })
 export class FaqPage {
+	public faqTypeNames: { [key in FaqType]: string } = {
+		[FaqType.GENERAL]: 'General',
+		[FaqType.SUPPORT]: 'Support',
+		[FaqType.ALPHA_BOT]: 'Alpha Bot',
+		[FaqType.PRO_BOT]: 'Pro Bot',
+		[FaqType.CUSTOM_BOT]: 'Custom Bot',
+		[FaqType.VIP_BOT]: 'VIP Bot'
+	};
+
 	public faqs: Faq[] = [
 		{
 			question: 'What is the InviteManager bot?',
@@ -196,15 +206,16 @@ export class FaqPage {
 			filteredFaqs = this.faqs.filter(
 				(faq) =>
 					faq.question.toLowerCase().includes(lowerCaseSearchTerm) ||
-					faq.answer.toLowerCase().includes(lowerCaseSearchTerm)
+					faq.answer.toLowerCase().includes(lowerCaseSearchTerm) ||
+					faq.group.toLowerCase().includes(lowerCaseSearchTerm)
 			);
 		}
-		const groups: Set<string> = new Set();
+		const groups: Set<FaqType> = new Set();
 		filteredFaqs.forEach((faq) => {
 			groups.add(faq.group);
 		});
 		this.filteredGroupedFaqs = Array.from(groups).map((group) => {
-			return { title: group, faqs: filteredFaqs.filter((faq) => faq.group === group) } as FaqGroup;
+			return { title: this.faqTypeNames[group], faqs: filteredFaqs.filter((faq) => faq.group === group) } as FaqGroup;
 		});
 	}
 }
