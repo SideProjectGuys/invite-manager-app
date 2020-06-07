@@ -36,6 +36,7 @@ jobs:
 
   deploy_github_pages:
     needs: build_angular
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
 
     steps:
@@ -64,6 +65,7 @@ jobs:
 
   android_build:
     needs: build_angular
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
 
     steps:
@@ -87,6 +89,10 @@ jobs:
           name: angular_dist
           path: www
 
+      # Install dependencies
+      - name: Install Capacitor
+        run: npm install @capacitor/cli
+
       - name: Copy files to native project
         run: npx cap sync android
 
@@ -107,6 +113,7 @@ jobs:
 
   ios_build:
     needs: build_angular
+    if: github.ref == 'refs/heads/master'
     runs-on: [macos-latest]
     env:
       XC_VERSION: ${{ '11.4' }}
@@ -131,7 +138,11 @@ jobs:
           name: angular_dist
           path: www
 
-      - name: Capacitor Sync
+      # Install dependencies
+      - name: Install Capacitor
+        run: npm install @capacitor/cli
+
+      - name: Copy files to native project
         run: npx cap sync ios
 
       - name: Build
