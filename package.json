@@ -11,7 +11,6 @@
 		"start": "ng serve",
 		"serve": "ionic serve --external",
 		"build": "ng build",
-		"build:prod": "ng build --prod",
 		"deploy": "ng deploy",
 		"test": "ng test",
 		"lint": "ng lint --fix",
