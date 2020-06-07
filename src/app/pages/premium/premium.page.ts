@@ -60,7 +60,7 @@ export class PremiumPage {
 		}
 	];
 
-	constructor() {}
+	public constructor() {}
 
 	public async openUrl(url: string): Promise<void> {
 		await Browser.open({ url });

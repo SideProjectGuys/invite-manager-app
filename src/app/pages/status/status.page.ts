@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./status.page.scss']
 })
 export class StatusPage implements OnInit {
-	constructor() {}
+	public constructor() {}
 
-	ngOnInit() {}
+	public ngOnInit() {}
 }
