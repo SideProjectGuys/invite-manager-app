@@ -16,14 +16,18 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+
       - name: Node 12
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
+
       - name: Prepare
         run: npm ci
+
       - name: Build
-        run: npm run build:prod
+        run: npx ionic build --prod
+
       - name: Upload
         uses: actions/upload-artifact@v1
         with:
@@ -31,11 +35,95 @@ jobs:
           path: www
 
   deploy_github_pages:
-    runs-on: ubuntu-latest
     needs: build_angular
+    runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Node 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Prepare
+        run: npm ci
+
       - name: Deploy Github Pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run actions:deploy
+
+  android_build:
+    needs: build_angular
+    runs-on: ubuntu-latest
+
+    steps:
+      # Setup environment
+        uses: actions/checkout@v2
+
+      - name: Setup java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      # Build app
+      - name: Download built webapp
+        uses: actions/download-artifact@v2
+        with:
+          name: angular_dist
+          path: www
+
+      - name: Copy files to native project
+        run: npx cap sync android
+
+      - name: Clean android project
+        run: android/gradlew --project-dir android clean
+
+      - name: Build Android APK
+        run: |
+          android/gradlew assembleDebug --project-dir android build
+          mv android/app/build/outputs/apk/debug/app-debug.apk invite-manager-app-unsigned.apk
+
+      # Publish dev artifacts
+      - name: Upload dev APK
+        uses: actions/upload-artifact@v1
+        with:
+          name: app-dev
+          path: invite-manager-app-unsigned.apk
+
+  ios_build:
+    needs: build_angular
+    runs-on: [macos-latest]
+    env:
+      XC_VERSION: ${{ '11.4' }}
+      XC_WORKSPACE: ${{ 'ios/App/App.xcworkspace' }}
+      XC_SCHEME: ${{ 'App' }}
+
+    steps:
+      - name: Select latest Xcode
+        run: 'sudo xcode-select -s /Applications/Xcode_$XC_VERSION.app'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Capacitor Sync
+        run: npx cap sync ios
+
+      - name: Run Unit and UI Tests
+        run: /usr/bin/xcodebuild test -workspace "$XC_WORKSPACE" -scheme "$XC_SCHEME" -destination 'platform=iOS Simulator,name=iPhone 11'
