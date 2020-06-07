@@ -215,7 +215,7 @@ export class FaqPage {
 			groups.add(faq.group);
 		});
 		this.filteredGroupedFaqs = Array.from(groups).map((group) => {
-			return { title: group, faqs: filteredFaqs.filter((faq) => faq.group === group) } as FaqGroup;
+			return { title: this.faqTypeNames[group], faqs: filteredFaqs.filter((faq) => faq.group === group) } as FaqGroup;
 		});
 	}
 }
