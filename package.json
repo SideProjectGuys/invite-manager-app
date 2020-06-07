@@ -63,6 +63,7 @@
 		"karma-jasmine-html-reporter": "^1.4.0",
 		"prettier": "^2.0.5",
 		"protractor": "~5.4.0",
+		"puppeteer": "^3.3.0",
 		"ts-node": "~7.0.0",
 		"tslint": "~5.15.0",
 		"tslint-config-prettier": "^1.18.0",

@@ -31,8 +31,8 @@ jobs:
       - name: Build
         run: npx ionic build --prod
 
-      - name: Unit Tests
-        run: npm test -- --configuration=ci
+      # - name: Unit Tests
+      #   run: npm test -- --configuration=ci
 
       - name: E2E Tests
         run: npm run e2e -- --configuration=ci
