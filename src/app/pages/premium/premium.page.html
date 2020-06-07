@@ -14,10 +14,20 @@
 				<ion-col *ngFor="let tier of tiers" size="12" size-md="3">
 					<ion-card class="ion-no-margin">
 						<ion-card-header class="ion-align-items-center">
-							<ion-card-title>{{ tier.name }}</ion-card-title>
+							<ion-row>
+								<ion-col size="3">
+									<ion-avatar>
+										<img [src]="tier.avatarUrl" />
+									</ion-avatar>
+								</ion-col>
+								<ion-col class="ion-align-self-center">
+									<ion-card-title>{{ tier.name }}</ion-card-title>
+								</ion-col>
+							</ion-row>
 						</ion-card-header>
 						<ion-card-content>
 							<p><strong>{{ tier.price }}</strong> / MONTH</p>
+							<p><strong>{{ tier.numberOfServers }}</strong> {{ tier.numberOfServers === 1 ? 'SERVER' : 'SERVERS'}}</p>
 							<ul>
 								<li *ngFor="let perk of tier.perks"><span [innerHTML]="perk"></span></li>
 							</ul>

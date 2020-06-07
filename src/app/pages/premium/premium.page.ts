@@ -6,6 +6,8 @@ const { Browser } = Plugins;
 interface Tier {
 	name: string;
 	price: string;
+	numberOfServers: number;
+	avatarUrl: string;
 	url: string;
 	perks: string[];
 }
@@ -20,6 +22,8 @@ export class PremiumPage {
 		{
 			name: 'Pro',
 			price: '$5',
+			numberOfServers: 1,
+			avatarUrl: '/assets/invite-manager-pro-logo.png',
 			url: 'https://patreon.com/invitemanager',
 			perks: [
 				'Access to <b>Premium features</b>',
@@ -32,6 +36,8 @@ export class PremiumPage {
 		{
 			name: 'Custom Bot',
 			price: '$10',
+			numberOfServers: 3,
+			avatarUrl: '/assets/invite-manager-main-logo.png',
 			url: 'https://patreon.com/invitemanager',
 			perks: [
 				'All of the above',
@@ -45,6 +51,8 @@ export class PremiumPage {
 		{
 			name: 'Premium Member',
 			price: '$20',
+			numberOfServers: 5,
+			avatarUrl: '/assets/invite-manager-alpha-logo.png',
 			url: 'https://patreon.com/invitemanager',
 			perks: [
 				'All of the above',
@@ -55,6 +63,8 @@ export class PremiumPage {
 		{
 			name: 'VIP',
 			price: '$50',
+			numberOfServers: 10,
+			avatarUrl: '/assets/invite-manager-vip-logo.png',
 			url: 'https://patreon.com/invitemanager',
 			perks: ['All of the above', 'Access to exclusive <a href="/faq/vip-bot">InviteManager VIP Bot</a>.']
 		}
