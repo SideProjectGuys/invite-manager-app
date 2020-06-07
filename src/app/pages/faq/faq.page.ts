@@ -210,7 +210,7 @@ export class FaqPage {
 					faq.group.toLowerCase().includes(lowerCaseSearchTerm)
 			);
 		}
-		const groups: Set<string> = new Set();
+		const groups: Set<FaqType> = new Set();
 		filteredFaqs.forEach((faq) => {
 			groups.add(faq.group);
 		});
