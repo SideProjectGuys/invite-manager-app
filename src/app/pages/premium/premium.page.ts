@@ -18,7 +18,7 @@ interface Tier {
 export class PremiumPage {
 	public tiers: Tier[] = [
 		{
-			name: 'Premium',
+			name: 'Pro',
 			price: '$5',
 			url: 'https://patreon.com/invitemanager',
 			perks: [

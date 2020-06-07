@@ -18,12 +18,14 @@
 						</ion-card-header>
 						<ion-card-content>
 							<p><strong>{{ tier.price }}</strong> / MONTH</p>
-							<ion-button (click)="openUrl(tier.url)">
-								Join
-							</ion-button>
 							<ul>
 								<li *ngFor="let perk of tier.perks"><span [innerHTML]="perk"></span></li>
 							</ul>
+							<div>
+								<ion-button color="secondary" (click)="openUrl(tier.url)">
+									Join
+								</ion-button>
+							</div>
 						</ion-card-content>
 					</ion-card>
 				</ion-col>
